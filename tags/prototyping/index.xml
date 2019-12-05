@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>prototyping | Jin Jeon</title>
+    <link>http://jinjeon.me/tags/prototyping/</link>
+      <atom:link href="http://jinjeon.me/tags/prototyping/index.xml" rel="self" type="application/rss+xml" />
+    <description>prototyping</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019 Jin Jeon</copyright><lastBuildDate>Tue, 10 Nov 2015 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://jinjeon.me/img/icon.png</url>
+      <title>prototyping</title>
+      <link>http://jinjeon.me/tags/prototyping/</link>
+    </image>
+    
+    <item>
+      <title>Homy, Private Social Network for Families</title>
+      <link>http://jinjeon.me/project/homy/</link>
+      <pubDate>Tue, 10 Nov 2015 00:00:00 +0000</pubDate>
+      <guid>http://jinjeon.me/project/homy/</guid>
+      <description>
+
+&lt;p&gt;In Fall 2015, I took a semester off to build my own mobile app. I wanted to develop a niche-specific social media that is just for families. Starting the project with mere passion and lacking practical knowledge, I self-taught how to conduct &lt;a href=&#34;http://jinjeon.me/pdf/Homy_A1.pdf&#34; target=&#34;_blank&#34;_&gt;market research&lt;/a&gt;, design and build prototypes. I hired a developer to make tangible results, and won first place in &lt;a href=&#34;http://rehoboth.co.kr&#34; target=&#34;_blank&#34;_&gt;Rehoboth&lt;/a&gt; Business Idea Competition with $5k support. I also received free office space from the state government.&lt;/p&gt;
+
+&lt;p&gt;&lt;li&gt; Developed storyboard and high fidelity prototype through iterations of market research, surveys, and user testing
+&lt;/li&gt;
+&lt;img src=&#34;http://jinjeon.me/img/homyui.png&#34; alt=&#34;&#34; /&gt;
+&lt;li&gt;
+From ideation and product management to recruiting, engaged in every aspect of early stage startup as founder
+&lt;/li&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;about-homy&#34;&gt;&lt;strong&gt;About Homy&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Problem Statement:&lt;/strong&gt;&lt;br&gt;
+We are spending the least time with the most important people in our lives, family, while spending more and more time with strangers, coworkers and friends. The cause of the problem has been generally identified as increased work and commute time, and hectic individual routines.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Design Solution:&lt;/strong&gt;&lt;br&gt;
+Homy attempts to solve this growing social problem by recreating online home and allowing families to seamlessly connect. With unique post-it style fridge page, Homy wants to encourage families to communicate more often. The mission is &lt;em&gt;to provide emotional communication service to enrich family’s real, offline relationship.&lt;/em&gt;
+&lt;br&gt;
+&lt;img src=&#34;http://jinjeon.me/pdf/Homy_A2-1.png&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://jinjeon.me/pdf/Homy_A2-2.png&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://jinjeon.me/pdf/Homy_A2-3.png&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://jinjeon.me/pdf/Homy_A2-4.png&#34; alt=&#34;&#34; /&gt;
+&lt;img src=&#34;http://jinjeon.me/pdf/Homy_A2-5.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Check more at:&lt;br&gt;
+&lt;a href=&#34;http://jinjeon.me/pdf/Homy_A1.pdf&#34; target=&#34;_blank&#34;_&gt; &lt;strong&gt;Defining Market Opportunity.pdf&lt;/strong&gt;&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

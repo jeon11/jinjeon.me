@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="Coming soon...">
+  <meta name="description" content="From setting up TensorFlow to creating vectors and cosine similarity">
 
   
   <link rel="alternate" hreflang="en-us" href="http://jinjeon.me/post/vectorspace/">
@@ -112,7 +112,7 @@
   <meta property="og:site_name" content="Jin Jeon">
   <meta property="og:url" content="http://jinjeon.me/post/vectorspace/">
   <meta property="og:title" content="Universal Sentence Encoder and GloVe on Narrative Semantic Representation | Jin Jeon">
-  <meta property="og:description" content="Coming soon..."><meta property="og:image" content="http://jinjeon.me/post/vectorspace/featured.png">
+  <meta property="og:description" content="From setting up TensorFlow to creating vectors and cosine similarity"><meta property="og:image" content="http://jinjeon.me/post/vectorspace/featured.png">
   <meta property="twitter:image" content="http://jinjeon.me/post/vectorspace/featured.png"><meta property="og:locale" content="en-us">
   
     
@@ -168,7 +168,7 @@
       "url": "http://jinjeon.me/img/icon.png"
     }
   },
-  "description": "Coming soon..."
+  "description": "From setting up TensorFlow to creating vectors and cosine similarity"
 }
 </script>
 
@@ -531,7 +531,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    1 min read
+    11 min read
   </span>
   
 
@@ -574,9 +574,625 @@
   <div class="article-container">
 
     <div class="article-style">
-      <p>In prep for setting up Google&rsquo;s Universal Sentence Encoder, and comparing the two models for measuring cosine similarity of semantics in narrative stories.</p>
+      
 
-<p>The results are shown in the <a href="/#posters">poster</a></p>
+<p><strong>See full repo at <a href="https://github.com/jeon11/use-glove-narrative.git" target="_blank">https://github.com/jeon11/use-glove-narrative.git</a></strong>
+<br>
+<strong>Note:</strong> The results are shown in the <a href="/#posters">poster</a></p>
+
+<h2 id="overview">Overview</h2>
+
+<p><strong>Google&rsquo;s Universal Sentence Encoder (USE)</strong> provides 512-dimension vectors for each input that are pre-trained on large corpus, and can be plugged into a variety of different task models, such as sentiment analysis, classification, and etc. It is speed-efficient without losing task accuracy, and also provides embeddings not just for word level, but also for phrases, sentences, and even paragraphs. However, the more the words are given as input, the more likely each word meaning gets diluted.</p>
+
+<p>This notebook is based on the Semantic Similarity with TF-Hub Universal Encoder tutorial, but uses a separate input from one of the projects. We will also use <strong>GloVe</strong> vectors to compare how the vectors and cosine similarity differ between the two models.</p>
+
+<ul>
+<li><p>First, the notebook goes over setting up locally and use one sample data to create embeddings saved out as a separate csv file using Pandas.</p></li>
+
+<li><p>Then assuming you have cloned the repository, we call in custom functions to quickly extract vectors of given word, phrase, sentences in USE and GloVe.</p></li>
+</ul>
+
+<h3 id="table-of-contents-short-cuts">Table of Contents/Short-cuts:</h3>
+
+<ol>
+<li><a href="#About-USE-Models-and-Deep-Average-Network">About USE Models and Deep Average Network</a></li>
+<li><a href="#Installation-&amp;-Setup">Installation &amp; Setup</a></li>
+<li><a href="#Path-Setup">Path Setup</a></li>
+<li><a href="#Raw-Data-Format">Raw Data Format</a></li>
+<li><a href="#Get-USE-Embeddings">Get USE Embeddings</a></li>
+<li><a href="#Cosine-Similarity">Cosine Similarity</a></li>
+<li><a href="#Cosine-Similarity-Example">Cosine Similarity Examples</a></li>
+<li><a href="#Plotting-Similarity-Matrix">Plotting Similarity Matrix</a></li>
+</ol>
+
+<h3 id="about-use-models-and-deep-average-network">About USE Models and Deep Average Network</h3>
+
+<p>There are two types of models in <strong>USE</strong>: <strong>Transformer</strong> and <strong>Deep Averaging Network (DAN)</strong>. We will use DAN which is a lighter version for efficiency and speed in exchange for reduced accuracy (still accurate enough).</p>
+
+<p>DAN first averages the input word embeddings to create a sentence embedding. It uses PTB tokenizer, which divides a sentence into a sequence of tokens based on set of rules on  how to process punctuation, articles, etc, in order to create 512 dimension embeddings. This averaged 512 vector is passed to one or more feedforward layers. Then it is multi-task-trained on unsupervised data drawn from various internet sources,  Wikipedia, Stanford Natural Language Inference corpus, web news, and forums.
+- Training  goals:
+    - Uses skip-thought-like model that predicts the surrounding sentences of a given text (see below)
+    - Conversational response suggestion
+    - Classification task on supervised data</p>
+
+<p>The intuition behind deep feedforward neural network is that each layer learns a more abstract representation of the input than the previous one. So its depth allows to capture subtle variations of the input with more depths. Also, each layer only involves a single matrix multiplication, allowing minimal computing time.</p>
+
+<p>See full USE paper: <a href="https://arxiv.org/pdf/1803.11175.pdf" target="_blank">https://arxiv.org/pdf/1803.11175.pdf</a>
+See full DAN paper: <a href="https://people.cs.umass.edu/~miyyer/pubs/2015_acl_dan.pdf" target="_blank">https://people.cs.umass.edu/~miyyer/pubs/2015_acl_dan.pdf</a></p>
+
+<hr />
+
+<h3 id="installation-setup">Installation &amp; Setup</h3>
+
+<p>I used Anaconda to create a TensorFlow-specific environment to customize the package versions. After installing Anaconda&hellip;</p>
+
+<ol>
+<li><p>Creating a new environment:</p>
+
+<pre><code>conda create -n py3 python=3.6.8
+</code></pre></li>
+
+<li><p>Activate the created environment by <code>conda activate py3</code></p></li>
+
+<li><p>Using pip, install packages for pandas, numpy, seaborn, tensorflow, tensorflow_hub. ie. <code>pip install pckge-name</code></p></li>
+
+<li><p>Then, let&rsquo;s make sure to set the packages to exact version:</p>
+
+<pre><code>pip install --upgrade tensorflow=1.15.0
+pip install --upgrade tensorflow-hub=0.7.0
+</code></pre></li>
+</ol>
+
+<p>Once the steps are done, we should be able to run the codes locally.</p>
+
+<hr />
+
+<pre><code class="language-python">from absl import logging
+import tensorflow as tf
+import tensorflow_hub as hub
+import matplotlib.pyplot as plt
+import numpy as np
+import os
+import pandas as pd
+from glob import glob
+import re
+import seaborn as sns
+</code></pre>
+
+<p><strong>Note:</strong>
+due to some depecrated methods and changes made with the tf version upgrade from tf1.X to tf2.0, here we use a specific set of Python and tf versions. You can check via <code>pip freeze</code></p>
+
+<ul>
+<li>tested on python == 3.6.8 | tensorflow == 1.15.0 | tensorflow_hub == 0.7.0</li>
+</ul>
+
+<p>Or you can check the version in Python via:</p>
+
+<pre><code class="language-python">import sys
+print(sys.version_info)  # sys.version_info(major=3, minor=6, micro=8, releaselevel='final')
+print(tf.__version__)    # '1.15.0'
+print(hub.__version__)   # '0.7.0'
+</code></pre>
+
+<pre><code class="language-python"># script variables
+
+# for lite/DAN version:
+module_url = &quot;https://tfhub.dev/google/universal-sentence-encoder/2&quot;
+
+# for heavy/Transformer version:
+# module_url = &quot;https://tfhub.dev/google/universal-sentence-encoder-large/3&quot;
+
+baseDir = 'use-glove-narrative'  # repository/base folder name
+embedding_size = 512  # base 512-dimension embedding
+</code></pre>
+
+<hr />
+
+<h3 id="path-setup">Path Setup</h3>
+
+<p>Assuming that you git cloned the project (which is for demo purposes) to your local directory, we set the path so the code knows where to look for certain data files using the <code>baseDir</code> specified above. We will mainly just work within the cloned folder.</p>
+
+<pre><code class="language-python">pwd = os.getcwd()
+# recursively find absolute path
+while os.path.basename(pwd) != baseDir:
+    os.chdir('..')
+    pwd = os.getcwd()
+baseDir = pwd
+dataDir = baseDir + '/data'
+
+# recursively find all csv files. We will work with one file here
+all_csvs = [y for x in os.walk(dataDir) for y in glob(os.path.join(x[0], '*.csv'))]
+all_csvs.sort()
+all_csvs = all_csvs[0]  # we will just use one sample data
+</code></pre>
+
+<h3 id="raw-data-format">Raw Data Format</h3>
+
+<p>To briefly show the data, the data is comprised of numerous idea units, or phrases of words with unique meanings. Here, we are only interested in the &lsquo;text&rsquo; column and &lsquo;index&rsquo; column. We will call in the text of the entire story to create embeddings for each idea unit. Below the example print out, we will loop over each story to create embeddings. Since we will use one story this time, it shouldn&rsquo;t take that long.</p>
+
+<pre><code class="language-python"># an example print of data format
+datafile = pd.read_csv(all_csvs)
+datafile.head()
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>paragraph</th>
+      <th>index</th>
+      <th>text</th>
+      <th>scoring</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>One fine day an old Maine man was fishing</td>
+      <td>mentions at least 3 of the following: “old”, “...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2</td>
+      <td>on his favorite lake</td>
+      <td>mentions “favorite lake” or “favorite river”</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>3</td>
+      <td>and catching very little.</td>
+      <td>mentions that he/the fisherman was not having ...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>4</td>
+      <td>Finally, he gave up</td>
+      <td>mentions that he gave up/stopped fishing</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>5</td>
+      <td>and walked back along the shore to his fishing...</td>
+      <td>mentions that he walked home/to his fishing sh...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<hr />
+
+<h2 id="get-use-embeddings">Get USE Embeddings</h2>
+
+<pre><code class="language-python"># let's read in the data file
+textfile = pd.read_csv(all_csvs)
+# get the title of the narrative story, cutting out the .csv extension
+title = os.path.basename(all_csvs)[:-4]
+
+
+# create df to save out at the end
+vector_df_columns = ['paragraph', 'index', 'text', 'size']
+# create column for each dimension (out of 512)
+for i in range(1, embedding_size + 1):
+    vector_df_columns.append('dim' + str(i))
+vector_df = pd.DataFrame(columns=vector_df_columns)
+
+
+# import the Universal Sentence Encoder's TF Hub module
+embed = hub.Module(module_url)  # hub.load(module_url) for tf==2.0.0
+
+# we call in the text column from data file
+messages = []
+for t in range(0, len(textfile)):
+    messages.append(textfile.iloc[t]['text'])
+
+</code></pre>
+
+<pre><code class="language-python"># Reduce logging output.
+logging.set_verbosity(logging.ERROR)
+
+with tf.compat.v1.Session() as session:
+    session.run([tf.compat.v1.global_variables_initializer(), tf.compat.v1.tables_initializer()])
+    message_embeddings = session.run(embed(messages))
+
+# make sure all units are there/sanity check
+assert len(message_embeddings) == len(textfile) == len(messages)
+
+# loop over each vector value to corresponding text
+for e in range(0, len(message_embeddings)):
+    vector_df.at[e, 'paragraph'] = textfile.iloc[e]['paragraph']
+    vector_df.at[e, 'index'] = textfile.iloc[e]['index']
+    vector_df.at[e, 'text'] = messages[e]
+    vector_df.at[e, 'size'] = len(message_embeddings[e])
+    for dim in range(0, len(message_embeddings[e])):
+        vector_df.at[e, 'dim'+str(dim+1)] = message_embeddings[e][dim]
+
+# display sample format
+vector_df.head()
+
+</code></pre>
+
+<pre><code>INFO:tensorflow:Saver not created because there are no variables in the graph to restore
+
+
+INFO:tensorflow:Saver not created because there are no variables in the graph to restore
+</code></pre>
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>paragraph</th>
+      <th>index</th>
+      <th>text</th>
+      <th>size</th>
+      <th>dim1</th>
+      <th>dim2</th>
+      <th>dim3</th>
+      <th>dim4</th>
+      <th>dim5</th>
+      <th>dim6</th>
+      <th>...</th>
+      <th>dim503</th>
+      <th>dim504</th>
+      <th>dim505</th>
+      <th>dim506</th>
+      <th>dim507</th>
+      <th>dim508</th>
+      <th>dim509</th>
+      <th>dim510</th>
+      <th>dim511</th>
+      <th>dim512</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>One fine day an old Maine man was fishing</td>
+      <td>512</td>
+      <td>0.0169429</td>
+      <td>-0.0030699</td>
+      <td>-0.0156278</td>
+      <td>-0.00649163</td>
+      <td>0.0213989</td>
+      <td>-0.0541645</td>
+      <td>...</td>
+      <td>0.0404136</td>
+      <td>-0.0577177</td>
+      <td>0.0108959</td>
+      <td>-0.0337963</td>
+      <td>0.0817816</td>
+      <td>-0.074783</td>
+      <td>0.0231454</td>
+      <td>0.0719041</td>
+      <td>-0.047105</td>
+      <td>0.0127639</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>2</td>
+      <td>on his favorite lake</td>
+      <td>512</td>
+      <td>-0.0172151</td>
+      <td>0.0418602</td>
+      <td>0.0105562</td>
+      <td>0.0290091</td>
+      <td>0.0351211</td>
+      <td>-0.0121579</td>
+      <td>...</td>
+      <td>0.0319399</td>
+      <td>-0.0201722</td>
+      <td>-0.00480706</td>
+      <td>-0.0490393</td>
+      <td>0.0562807</td>
+      <td>-0.0840528</td>
+      <td>0.0359073</td>
+      <td>0.0519214</td>
+      <td>0.0635523</td>
+      <td>-0.0615548</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>3</td>
+      <td>and catching very little.</td>
+      <td>512</td>
+      <td>0.0515628</td>
+      <td>0.00556853</td>
+      <td>-0.0606079</td>
+      <td>-0.0281095</td>
+      <td>-0.0631535</td>
+      <td>-0.0586548</td>
+      <td>...</td>
+      <td>-0.0266129</td>
+      <td>0.0111167</td>
+      <td>-0.0238963</td>
+      <td>0.00741908</td>
+      <td>-0.0685881</td>
+      <td>-0.0858848</td>
+      <td>0.066858</td>
+      <td>-0.0616563</td>
+      <td>-0.0844253</td>
+      <td>-0.026685</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>4</td>
+      <td>Finally, he gave up</td>
+      <td>512</td>
+      <td>0.0818241</td>
+      <td>0.00549721</td>
+      <td>-0.0245033</td>
+      <td>0.0286504</td>
+      <td>-0.0284165</td>
+      <td>-0.0575481</td>
+      <td>...</td>
+      <td>0.0474779</td>
+      <td>-0.00603216</td>
+      <td>-0.0116888</td>
+      <td>-0.06419</td>
+      <td>0.0268704</td>
+      <td>-0.0640136</td>
+      <td>0.103409</td>
+      <td>-0.0235997</td>
+      <td>-0.0781731</td>
+      <td>-0.0365196</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>5</td>
+      <td>and walked back along the shore to his fishing...</td>
+      <td>512</td>
+      <td>0.00286058</td>
+      <td>0.0576001</td>
+      <td>0.0103945</td>
+      <td>-0.00301533</td>
+      <td>0.0199591</td>
+      <td>-0.0644398</td>
+      <td>...</td>
+      <td>-0.0145959</td>
+      <td>0.0137776</td>
+      <td>0.0165417</td>
+      <td>-0.0406641</td>
+      <td>-0.0204453</td>
+      <td>-0.0713526</td>
+      <td>0.0121754</td>
+      <td>0.00591647</td>
+      <td>0.0262764</td>
+      <td>-0.0329477</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 516 columns</p>
+</div>
+
+<pre><code class="language-python">print(np.shape(vector_df))
+</code></pre>
+
+<pre><code>(0, 516)
+</code></pre>
+
+<p>The sample data shows each idea unit/text converted to 512 dimension vectors. <code>np.shape(vector_df)</code> will return a 41 total idea units/phrases to 516 columns (512 dimensions + custom columns (paragraph info, index, text, and size)). We then use these vectors to explore semantic similarity between text and phrases.</p>
+
+<pre><code class="language-python"># run the code below to save out as csv file
+vector_df.reindex(columns=vector_df_columns)
+vector_df.to_csv(title + '_vectors.csv', index=False)
+</code></pre>
+
+<hr />
+
+<h2 id="cosine-similarity">Cosine Similarity</h2>
+
+<p>As a brief description, <strong>cosine similarity</strong> is basically the measure of cosine angle between the two vectors. Since we have USE and GloVe vectors that represent words into multidimensional vectors, we can apply these vector values to calculate how similar the two words are.</p>
+
+<p>It can be easily calculated in Python with its useful packages:</p>
+
+<pre><code class="language-python">cos_sim = numpy.dot(vector1, vector2)/(numpy.linalg.norm(vector1) * numpy.linalg.norm(vector2))
+</code></pre>
+
+<p>Assuming we established some basic understanding, let&rsquo;s call in the functions I made so that we can easily get USE and GloVe vectors at multiple word level.</p>
+
+<p>I will highlight some of the functions below:</p>
+
+<pre><code class="language-python">from get_glove_use import *
+help(glove_vec)
+help(use_vec)
+</code></pre>
+
+<pre><code>Help on function glove_vec in module get_glove_use:
+
+glove_vec(item1, item2)
+    get vectors for given two words and calculate cosine similarity
+
+    Parameters
+    ----------
+    item1 : str
+        string in glove word pool vector to compare
+    item2 : str
+        string in glove word pool vector to compare
+
+    Returns
+    -------
+    item1_vector : array
+        item1 GloVe vector
+    item2_vector : array
+        item2 GloVe vector
+    cos_sim : float
+        cosine similarity of item1 and item2 vectors
+
+Help on function use_vec in module get_glove_use:
+
+use_vec(item1, item2)
+    get USE vectors and cosine similairty of the two items
+
+    Parameters
+    ----------
+    item1 : str, list
+        any word to compare, put in string for more than one word
+    item2 : str, list
+        any word to compare, put in string for more than one word
+
+    Returns
+    -------
+    item1_vector : array
+        item1 USE vector
+    item2_vector : array
+        item2 USE vector
+    cos_sim : float
+        cosine similarity of item1 and item2 vectors
+</code></pre>
+
+<h3 id="cosine-similarity-example">Cosine Similarity Example</h3>
+
+<p>Using the two functions above, and another function compare_word_vec (which basically uses the two functions), we can easily obtain cosine similarity of two words.</p>
+
+<pre><code class="language-python"># using the two functions above, we can get
+# GloVe and USE vectors and cosine similarity of two input words
+os.chdir(gloveDir)
+_, _, glove_sim = glove_vec('fish','bear')
+_, _, use_sim = use_vec('fish','bear')
+print('use cos: ' + str(use_sim))
+print('glove cos: ' + str(glove_sim))
+</code></pre>
+
+<pre><code>INFO:tensorflow:Saver not created because there are no variables in the graph to restore
+
+
+INFO:tensorflow:Saver not created because there are no variables in the graph to restore
+
+
+0.11964830574261577
+0.5305143
+</code></pre>
+
+<pre><code class="language-python"># the two functions glove_vex and use_vec are use in compare_word_vec
+compare_word_vec('man','fish')
+</code></pre>
+
+<pre><code>INFO:tensorflow:Saver not created because there are no variables in the graph to restore
+
+
+INFO:tensorflow:Saver not created because there are no variables in the graph to restore
+
+
+use cos: 0.49838725
+glove cos: 0.18601566881803455
+</code></pre>
+
+<p><strong>Note:</strong> From the example above, USE and GloVe similarly identy <em>fish</em> to be somewhat equally similar to <em>bear</em> and <em>man</em> (but just in different scale/degree).</p>
+
+<p>Now let&rsquo;s try comparing at multiple words or phrase level. We will use new functions and give in new inputs as strings.</p>
+
+<pre><code class="language-python">sentence1 = ['old', 'man', 'caught', 'fish']
+sentence2 = ['bear', 'hunted', 'trout']
+sentence3 = ['bear','eat','six','fish']
+
+print('old man caught fish &amp; bear hunted trout:')
+phrase_vec(sentence1, sentence2)
+
+print('old man caught fish &amp; bear eat six fish:')
+phrase_vec(sentence1, sentence3)
+
+print('bear hunted trout &amp; bear eat six fish:')
+phrase_vec(sentence2, sentence3)
+
+</code></pre>
+
+<pre><code>old man caught fish &amp; bear hunted trout:
+INFO:tensorflow:Saver not created because there are no variables in the graph to restore
+
+
+INFO:tensorflow:Saver not created because there are no variables in the graph to restore
+
+
+glove sim: 0.36609688461789297
+USE sim: 0.50494814
+old man caught fish &amp; bear eat six fish:
+INFO:tensorflow:Saver not created because there are no variables in the graph to restore
+
+
+INFO:tensorflow:Saver not created because there are no variables in the graph to restore
+
+
+glove sim: 0.6818474640845398
+USE sim: 0.5896743
+bear hunted trout &amp; bear eat six fish:
+INFO:tensorflow:Saver not created because there are no variables in the graph to restore
+
+
+INFO:tensorflow:Saver not created because there are no variables in the graph to restore
+
+
+glove sim: 0.6082457470353315
+USE sim: 0.72352856
+</code></pre>
+
+<p><strong>Note:</strong> From the example above, we can see that USE and GloVe capture somewhat differently. We can see that <em>bear hunted trout</em> and <em>bear eat six fish</em> are the most similar to each other, whereas <em>old man caught fish</em> is also similar to the context of bear eating six fish.</p>
+
+<p>More detailed analysis is required, but the example above shows great possibilities to exploring semantics.</p>
+
+<h3 id="plotting-similarity-matrix">Plotting Similarity Matrix</h3>
+
+<p>Now that we can compare similarity of words and sentences, we can plot a simple pairwise matrix, which basically compares how similar each word is to another in the given list. Fortunately, we already have a plot for doing it (using Seaborn).</p>
+
+<p>I will only use few words as demonstration, since it&rsquo;s been slowing up my computer so much!</p>
+
+<pre><code class="language-python">plot_sim_matrix(['man', 'bear', 'fish', 'trout'])
+</code></pre>
+
+<pre><code>INFO:tensorflow:Saver not created because there are no variables in the graph to restore
+
+
+INFO:tensorflow:Saver not created because there are no variables in the graph to restore
+</code></pre>
+
+<p><img src="./use_glove_cosine_similarity_25_2.png" alt="png" /></p>
+
+<h2 id="ending-note">Ending Note</h2>
+
+<p>In the example above, we only used simple noun words. The stronger blue color, the more similar the two words are. Thus, the diagonal strip is deep blue (similarity of same two words is 1). You can see <em>fish</em> and <em>trout</em> are more similar to each other, than is <em>man</em> to <em>trout</em>.</p>
+
+<p>Keep in mind that you can feed in more words and sentences to create and visualize a larger matrix.</p>
+
+<p>We looked at setting up USE locally, and creating embeddings from USE. The cloned project also has sample version of GloVe vectors. We use the vectors from the two models to extract vectors and compare similarity of two texts.</p>
 
     </div>
 
@@ -585,6 +1201,20 @@
 
 
 
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/tensorflow/">tensorflow</a>
+  
+  <a class="badge badge-light" href="/tags/python/">python</a>
+  
+  <a class="badge badge-light" href="/tags/vectorspace/">vectorspace</a>
+  
+  <a class="badge badge-light" href="/tags/semantics/">semantics</a>
+  
+  <a class="badge badge-light" href="/tags/research/">research</a>
+  
+</div>
 
 
 
@@ -786,6 +1416,21 @@
 
 
   
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/eeg-advanced/">EEG/Signal Processing--Advanced Part 2</a></li>
+      
+      <li><a href="/post/eeg-basics/">EEG/Signal Processing--Basics Part 1</a></li>
+      
+      <li><a href="/project/yelp/">Yelp Dataset Challenge</a></li>
+      
+      <li><a href="/project/featureprioritization/">Feature Prioritization in Classification of Novel Objects</a></li>
+      
+    </ul>
+  </div>
   
 
 

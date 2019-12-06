@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>classifier | Jin Jeon</title>
+    <link>http://jinjeon.me/tags/classifier/</link>
+      <atom:link href="http://jinjeon.me/tags/classifier/index.xml" rel="self" type="application/rss+xml" />
+    <description>classifier</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019 Jin Jeon</copyright><lastBuildDate>Sat, 10 Dec 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>http://jinjeon.me/img/icon.png</url>
+      <title>classifier</title>
+      <link>http://jinjeon.me/tags/classifier/</link>
+    </image>
+    
+    <item>
+      <title>Yelp Dataset Challenge</title>
+      <link>http://jinjeon.me/project/yelp/</link>
+      <pubDate>Sat, 10 Dec 2016 00:00:00 +0000</pubDate>
+      <guid>http://jinjeon.me/project/yelp/</guid>
+      <description>&lt;p&gt;By analyzing Yelp’s dataset, specifically star ratings and text reviews, we created a classifier that predicts whether reviews are positive (star ratings of four or five) or negative (star ratings of one or two). We excluded star ratings of three because we weren’t sure whether they were positive or negative. While Yelp’s star ratings are helpful for concise overview of local businesses, they are also crucial metrics for businesses as the ratings reflect their reputations. However, we realized that star ratings are often misleading as they are subject to user bias and preference. Thus, we wanted to predict ratings solely based on textual features of the reviews and exclude any potential human errors and biases. Performing logistic regression with the combined five features, we were able to correctly predict the reviews with an overall accuracy of 79%.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

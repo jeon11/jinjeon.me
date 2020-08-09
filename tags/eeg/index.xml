@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>eeg | Jin Jeon</title>
-    <link>http://jinjeon.me/tags/eeg/</link>
-      <atom:link href="http://jinjeon.me/tags/eeg/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://jinjeon.me/tags/eeg/</link>
+      <atom:link href="https://jinjeon.me/tags/eeg/index.xml" rel="self" type="application/rss+xml" />
     <description>eeg</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Jin Jeon</copyright><lastBuildDate>Wed, 02 May 2018 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://jinjeon.me/img/icon.png</url>
+      <url>https://jinjeon.me/img/icon.png</url>
       <title>eeg</title>
-      <link>http://jinjeon.me/tags/eeg/</link>
+      <link>https://jinjeon.me/tags/eeg/</link>
     </image>
     
     <item>
       <title>EEG/Signal Processing--Advanced Part 2</title>
-      <link>http://jinjeon.me/post/eeg-advanced/</link>
+      <link>https://jinjeon.me/post/eeg-advanced/</link>
       <pubDate>Wed, 02 May 2018 00:00:00 +0000</pubDate>
-      <guid>http://jinjeon.me/post/eeg-advanced/</guid>
+      <guid>https://jinjeon.me/post/eeg-advanced/</guid>
       <description>
 
 &lt;h3 id=&#34;note&#34;&gt;Note:&lt;/h3&gt;
@@ -349,9 +349,9 @@ fig8 = arevoked_tlst_c4.plot(titles=&#39;cond4: low cos/inval&#39;)
     
     <item>
       <title>EEG/Signal Processing--Basics Part 1</title>
-      <link>http://jinjeon.me/post/eeg-basics/</link>
+      <link>https://jinjeon.me/post/eeg-basics/</link>
       <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
-      <guid>http://jinjeon.me/post/eeg-basics/</guid>
+      <guid>https://jinjeon.me/post/eeg-basics/</guid>
       <description>
 
 &lt;h3 id=&#34;note&#34;&gt;Note:&lt;/h3&gt;

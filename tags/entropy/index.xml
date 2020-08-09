@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>entropy | Jin Jeon</title>
-    <link>http://jinjeon.me/tags/entropy/</link>
-      <atom:link href="http://jinjeon.me/tags/entropy/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://jinjeon.me/tags/entropy/</link>
+      <atom:link href="https://jinjeon.me/tags/entropy/index.xml" rel="self" type="application/rss+xml" />
     <description>entropy</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Jin Jeon</copyright><lastBuildDate>Fri, 31 Jan 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://jinjeon.me/img/icon.png</url>
+      <url>https://jinjeon.me/img/icon.png</url>
       <title>entropy</title>
-      <link>http://jinjeon.me/tags/entropy/</link>
+      <link>https://jinjeon.me/tags/entropy/</link>
     </image>
     
     <item>
       <title>Mutual Information in Neuroimaging</title>
-      <link>http://jinjeon.me/post/mutual-info/</link>
+      <link>https://jinjeon.me/post/mutual-info/</link>
       <pubDate>Fri, 31 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>http://jinjeon.me/post/mutual-info/</guid>
+      <guid>https://jinjeon.me/post/mutual-info/</guid>
       <description>
 
 &lt;h2 id=&#34;entropy-in-neuroimaging&#34;&gt;Entropy in Neuroimaging&lt;/h2&gt;

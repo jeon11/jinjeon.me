@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>brain | Jin Jeon</title>
-    <link>http://jinjeon.me/tags/brain/</link>
-      <atom:link href="http://jinjeon.me/tags/brain/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://jinjeon.me/tags/brain/</link>
+      <atom:link href="https://jinjeon.me/tags/brain/index.xml" rel="self" type="application/rss+xml" />
     <description>brain</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Jin Jeon</copyright><lastBuildDate>Sat, 01 Dec 2018 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://jinjeon.me/img/icon.png</url>
+      <url>https://jinjeon.me/img/icon.png</url>
       <title>brain</title>
-      <link>http://jinjeon.me/tags/brain/</link>
+      <link>https://jinjeon.me/tags/brain/</link>
     </image>
     
     <item>
       <title>fMRI Neuroimaging &amp; Classifier Coming Soon...</title>
-      <link>http://jinjeon.me/post/fmri/</link>
+      <link>https://jinjeon.me/post/fmri/</link>
       <pubDate>Sat, 01 Dec 2018 00:00:00 +0000</pubDate>
-      <guid>http://jinjeon.me/post/fmri/</guid>
+      <guid>https://jinjeon.me/post/fmri/</guid>
       <description>&lt;p&gt;In prep for fMRI neuroimaging processing and building classifier&lt;/p&gt;
 </description>
     </item>

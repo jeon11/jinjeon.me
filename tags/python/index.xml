@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>python | Jin Jeon</title>
-    <link>http://jinjeon.me/tags/python/</link>
-      <atom:link href="http://jinjeon.me/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://jinjeon.me/tags/python/</link>
+      <atom:link href="https://jinjeon.me/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <description>python</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Jin Jeon</copyright><lastBuildDate>Fri, 31 Jan 2020 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>http://jinjeon.me/img/icon.png</url>
+      <url>https://jinjeon.me/img/icon.png</url>
       <title>python</title>
-      <link>http://jinjeon.me/tags/python/</link>
+      <link>https://jinjeon.me/tags/python/</link>
     </image>
     
     <item>
       <title>Mutual Information in Neuroimaging</title>
-      <link>http://jinjeon.me/post/mutual-info/</link>
+      <link>https://jinjeon.me/post/mutual-info/</link>
       <pubDate>Fri, 31 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>http://jinjeon.me/post/mutual-info/</guid>
+      <guid>https://jinjeon.me/post/mutual-info/</guid>
       <description>
 
 &lt;h2 id=&#34;entropy-in-neuroimaging&#34;&gt;Entropy in Neuroimaging&lt;/h2&gt;
@@ -565,14 +565,14 @@ plt.savefig(&#39;/home/jeonj1/proj/mi/mi_box_distplot.png&#39;)
     
     <item>
       <title>Universal Sentence Encoder and GloVe on Narrative Semantic Representation</title>
-      <link>http://jinjeon.me/post/vectorspace/</link>
+      <link>https://jinjeon.me/post/vectorspace/</link>
       <pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
-      <guid>http://jinjeon.me/post/vectorspace/</guid>
+      <guid>https://jinjeon.me/post/vectorspace/</guid>
       <description>
 
 &lt;p&gt;&lt;strong&gt;See full repo at &lt;a href=&#34;https://github.com/jeon11/use-glove-narrative.git&#34; target=&#34;_blank&#34;&gt;https://github.com/jeon11/use-glove-narrative.git&lt;/a&gt;&lt;/strong&gt;
 &lt;br&gt;
-&lt;strong&gt;Note:&lt;/strong&gt; The results are shown in the &lt;a href=&#34;http://jinjeon.me/#posters&#34;&gt;poster&lt;/a&gt;&lt;/p&gt;
+&lt;strong&gt;Note:&lt;/strong&gt; The results are shown in the &lt;a href=&#34;https://jinjeon.me/#posters&#34;&gt;poster&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;
 
@@ -1192,9 +1192,9 @@ INFO:tensorflow:Saver not created because there are no variables in the graph to
     
     <item>
       <title>EEG/Signal Processing--Advanced Part 2</title>
-      <link>http://jinjeon.me/post/eeg-advanced/</link>
+      <link>https://jinjeon.me/post/eeg-advanced/</link>
       <pubDate>Wed, 02 May 2018 00:00:00 +0000</pubDate>
-      <guid>http://jinjeon.me/post/eeg-advanced/</guid>
+      <guid>https://jinjeon.me/post/eeg-advanced/</guid>
       <description>
 
 &lt;h3 id=&#34;note&#34;&gt;Note:&lt;/h3&gt;
@@ -1527,9 +1527,9 @@ fig8 = arevoked_tlst_c4.plot(titles=&#39;cond4: low cos/inval&#39;)
     
     <item>
       <title>EEG/Signal Processing--Basics Part 1</title>
-      <link>http://jinjeon.me/post/eeg-basics/</link>
+      <link>https://jinjeon.me/post/eeg-basics/</link>
       <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
-      <guid>http://jinjeon.me/post/eeg-basics/</guid>
+      <guid>https://jinjeon.me/post/eeg-basics/</guid>
       <description>
 
 &lt;h3 id=&#34;note&#34;&gt;Note:&lt;/h3&gt;
@@ -1934,9 +1934,9 @@ evoked_tlst_c4 = epochs_tlstS[&amp;quot;label==&#39;lstS&#39; and cond==&#39;4&#
     
     <item>
       <title>Yelp Dataset Challenge</title>
-      <link>http://jinjeon.me/project/yelp/</link>
+      <link>https://jinjeon.me/project/yelp/</link>
       <pubDate>Sat, 10 Dec 2016 00:00:00 +0000</pubDate>
-      <guid>http://jinjeon.me/project/yelp/</guid>
+      <guid>https://jinjeon.me/project/yelp/</guid>
       <description>&lt;p&gt;By analyzing Yelp’s dataset, specifically star ratings and text reviews, we created a classifier that predicts whether reviews are positive (star ratings of four or five) or negative (star ratings of one or two). We excluded star ratings of three because we weren’t sure whether they were positive or negative. While Yelp’s star ratings are helpful for concise overview of local businesses, they are also crucial metrics for businesses as the ratings reflect their reputations. However, we realized that star ratings are often misleading as they are subject to user bias and preference. Thus, we wanted to predict ratings solely based on textual features of the reviews and exclude any potential human errors and biases. Performing logistic regression with the combined five features, we were able to correctly predict the reviews with an overall accuracy of 79%.&lt;/p&gt;
 </description>
     </item>

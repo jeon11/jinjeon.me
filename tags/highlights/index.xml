@@ -1151,9 +1151,13 @@ When presenting the different demographic groups, it can be as easy as describin
 
 &lt;p&gt;&lt;/div&gt;&lt;iframe src=&#34;https://editor.p5js.org/jeon11/embed/w2Ugnl4dR&#34; width=&#34;760&#34; height=&#34;600&#34;&gt;Image Reconstruction using Perlin Noise (Javascript- p5.js) &lt;/iframe&gt;&lt;/p&gt;
 
-&lt;p&gt;The image above uses Perlin Noise to reconstruct old classic artworks, which is useful for generating patterns. Starting from a blank screen, it creates thousands of random noises that start recovering the image. They do so by reading the color of the image coordinates. The noises diffuse by generating random polygons spreading around, filling in the gap. There are total of four images that are randomly chosen at the beginning. Feel free to refresh to see how different images are created.&lt;/p&gt;
+&lt;p&gt;The image above uses Perlin Noise to reconstruct old classic artworks, which is useful for generating patterns. Starting from a blank screen, it creates thousands of random noises that start recovering the image. They do so by reading the color of the image coordinates. The noises diffuse by generating random polygons spreading around, filling in the gap.&lt;/p&gt;
 
-&lt;p&gt;Dragging the mouse will draw circles on top of the default loop to recover the image closer to the original.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;There are total of four images that are randomly chosen at the beginning. Refresh the page to see how different images are created.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Dragging the mouse will draw circles on top of the default loop to recover the image closer to the original.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h2 id=&#34;page-is-currently-under-development&#34;&gt;Page is currently under development&lt;/h2&gt;
 

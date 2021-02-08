@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Project-archives | Jin Jeon</title>
+    <link>https://jinjeon.me/project-archives/</link>
+      <atom:link href="https://jinjeon.me/project-archives/index.xml" rel="self" type="application/rss+xml" />
+    <description>Project-archives</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2021 developed by Jin Jeon with HTML/CSS/Markdown and ❤️ </copyright><lastBuildDate>Wed, 10 May 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://jinjeon.me/img/icon.png</url>
+      <title>Project-archives</title>
+      <link>https://jinjeon.me/project-archives/</link>
+    </image>
+    
+    <item>
+      <title>Feature Prioritization in Classification of Novel Objects</title>
+      <link>https://jinjeon.me/project-archives/featureprioritization/</link>
+      <pubDate>Wed, 10 May 2017 00:00:00 +0000</pubDate>
+      <guid>https://jinjeon.me/project-archives/featureprioritization/</guid>
+      <description>&lt;p&gt;Object classification is essential to human learning as it helps us cope with various stimulus around the world. Regardless of multiple features within a single object, object classification seems to occur seamlessly within our cognitive process. In this experiment, we test how we prioritize each feature within an object and how these features are weighted when we categorize a certain object. Test subjects were given novel shapes that each featured either size, color, or orientation, and had to determine whether the shape belongs to a category of a given prototypical shape. &lt;br&gt; &lt;br&gt; The preliminary result showed that color was the single most determining feature when categorizing an object, showing 72.6% of incorporation in all trials, while orientation was the least with 60.7%, but the differences were not statistically significant. We further went on to use logistic regression to analyze the result, which showed thresholds for identifying a novel object to be in a certain category. However, these thresholds for each feature was not significantly different. The experiment suggests that categorization is more of an elaborate and holistic process that combines different features when categorizing a novel object.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Yelp Dataset Challenge</title>
+      <link>https://jinjeon.me/project-archives/yelp/</link>
+      <pubDate>Sat, 10 Dec 2016 00:00:00 +0000</pubDate>
+      <guid>https://jinjeon.me/project-archives/yelp/</guid>
+      <description>&lt;p&gt;By analyzing Yelp’s dataset, specifically star ratings and text reviews, we created a classifier that predicts whether reviews are positive (star ratings of four or five) or negative (star ratings of one or two). We excluded star ratings of three because we weren’t sure whether they were positive or negative. While Yelp’s star ratings are helpful for concise overview of local businesses, they are also crucial metrics for businesses as the ratings reflect their reputations. However, we realized that star ratings are often misleading as they are subject to user bias and preference. Thus, we wanted to predict ratings solely based on textual features of the reviews and exclude any potential human errors and biases. Performing logistic regression with the combined five features, we were able to correctly predict the reviews with an overall accuracy of 79%.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

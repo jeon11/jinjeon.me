@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ABTesting | Jin Jeon</title>
+    <link>https://jinjeon.me/tags/abtesting/</link>
+      <atom:link href="https://jinjeon.me/tags/abtesting/index.xml" rel="self" type="application/rss+xml" />
+    <description>ABTesting</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2021 developed by Jin Jeon with HTML/CSS/Markdown and ❤️ </copyright><lastBuildDate>Wed, 31 Mar 2021 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://jinjeon.me/img/icon.png</url>
+      <title>ABTesting</title>
+      <link>https://jinjeon.me/tags/abtesting/</link>
+    </image>
+    
+    <item>
+      <title>WA COVID Exposure Notification Usability Study</title>
+      <link>https://jinjeon.me/project/wa-notify/</link>
+      <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
+      <guid>https://jinjeon.me/project/wa-notify/</guid>
+      <description>
+
+&lt;p&gt;&lt;body style=&#34;font-family:Arial; font-size: 12pt&#34;&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;page-is-currently-under-development&#34;&gt;Page is currently under development&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;/body&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

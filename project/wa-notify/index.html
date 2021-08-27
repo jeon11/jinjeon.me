@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="Under Construction">
+  <meta name="description" content="Task-based usability and AB testing on two versions of the COVID alert system in iOS and Android">
 
   
   <link rel="alternate" hreflang="en-us" href="https://jinjeon.me/project/wa-notify/">
@@ -112,7 +112,7 @@
   <meta property="og:site_name" content="Jin Jeon">
   <meta property="og:url" content="https://jinjeon.me/project/wa-notify/">
   <meta property="og:title" content="WA COVID Exposure Notification Usability Study | Jin Jeon">
-  <meta property="og:description" content="Under Construction"><meta property="og:image" content="https://jinjeon.me/project/wa-notify/featured.png">
+  <meta property="og:description" content="Task-based usability and AB testing on two versions of the COVID alert system in iOS and Android"><meta property="og:image" content="https://jinjeon.me/project/wa-notify/featured.png">
   <meta property="twitter:image" content="https://jinjeon.me/project/wa-notify/featured.png"><meta property="og:locale" content="en-us">
   
     
@@ -166,7 +166,7 @@
       "url": "https://jinjeon.me/img/icon.png"
     }
   },
-  "description": "Under Construction"
+  "description": "Task-based usability and AB testing on two versions of the COVID alert system in iOS and Android"
 }
 </script>
 
@@ -536,7 +536,7 @@
 <p><body style="font-family:Arial; font-size: 12pt">
 <div class="introduction">
 <b><h style="font-family:georgia">My Role:</h></b>
-<br><small>UX researcher in a group of total 4 graduate students </small><br><br></p>
+<br><small>UX researcher in a group of 4 graduate students </small><br><br></p>
 
 <p><b><h style="font-family:georgia">Methods:</h></b>
 <br><small><strong>Usability testing</strong>, <strong>AB testing</strong>, qualitative interviews, affinity mapping </small><br><br></p>
@@ -552,11 +552,13 @@
 
 <h2 id="h-style-font-family-georgia-background-what-is-wa-notify-h"><h style="font-family:georgia"> Background: What is WA Notify? </h></h2>
 
-<p><strong>Washington Exposure Notifications (ENX, also known as WA Notify)</strong> is a tool that works through smartphones to alert users if they may have been exposed to COVID-19. Using Bluetooth, it allows smartphones to exchange randomly generated codes without revealing any personal information.</p>
+<p><strong>Washington Exposure Notifications (ENX, also known as WA Notify)</strong> is a tool that works through smartphones to <strong>alert users if they may have been exposed to COVID-19.</strong> Using Bluetooth, it allows smartphones to exchange randomly generated codes <strong>without revealing any personal information</strong>. <strong>As of August of 2021, there are more than 2.31 million users.</strong></p>
 
-<p>If another user you&rsquo;ve been near in the last two weeks tested positive for COVID-19 and added his verification code, anyone who was in close contact will receive an exposure alert.</p>
+<ul>
+<li><p>If another user you&rsquo;ve been near in the last two weeks tested positive for COVID-19 and added his verification code, anyone who was in close contact will receive an exposure alert.</p></li>
 
-<p><em>If you are an iPhone user, you might have easily encountered this through your settings menu.</em></p>
+<li><p><em>If you are an iPhone user, you might have easily encountered this through your settings menu.</em></p></li>
+</ul>
 
 <h2 id="h-style-font-family-georgia-overview-h"><h style="font-family:georgia"> Overview </h></h2>
 
@@ -577,13 +579,14 @@
 <ul>
 <li><strong>Understand first reactions</strong> to the app, DOH website&rsquo;s information page, exposure alert, and overall user experience.</li>
 <li><strong>Provide evidence-based suggestions to improve the interaction</strong> (not about the specific UIs).</li>
+<li><strong>Identify the experience gaps</strong> that could be present in the different OS since there has been a significant churn rate for Android users.</li>
 </ul>
 
 <h2 id="h-style-font-family-georgia-impact-h"><h style="font-family:georgia"> Impact </h></h2>
 
 <ul>
 <li>The project was spotlighted in our HCDE program&rsquo;s <a href="https://www.hcde.washington.edu/news/hcde-students-work-with-wa-department-of-health-to-study-covid–19-exposure-notification-app" target="_blank">website newsletter</a>.</li>
-<li><strong>Ensured</strong> research deliverables meet the stakeholders&rsquo; expectations by checking in weekly since the planning stage.</li>
+<li><strong>Ensured research deliverables meet the stakeholders&rsquo; expectations</strong> by checking in weekly since the planning stage.</li>
 <li><strong>Provided prioritized list of recommendations</strong> for the three areas of focus, and assessed the experience gaps between the OS to the stakeholders.</li>
 </ul>
 
@@ -622,13 +625,10 @@
 
 <hr />
 
-<!-- <br>
-## <h style="font-family:georgia"> 1. Screener & Recruiting </h>
+<p><br></p>
 
-### Goals:
+<h2 id="h-style-font-family-georgia-design-of-the-study-h"><h style="font-family:georgia"> Design of the Study </h></h2>
 
-
-### At a Glance (Intentionally not readable):
 
 
 
@@ -645,50 +645,81 @@
 <figure>
 
 
-  <a data-fancybox="" href="preliminary-research.png" data-caption="Using FigJam, I visually laid out findings from past research.  The white empty spaces indicated potential knowledge gaps.">
-<img src="preliminary-research.png" alt="" width="full" ></a>
+  <a data-fancybox="" href="userflow.png" data-caption="The team initially visually laid out the user flow for each OS. The overall steps were broken down into three parts: onboarding, receiving alerts, and entering the verification code for positive COVID test results.">
+<img src="userflow.png" alt="" width="full" ></a>
 
 
   
   
   <figcaption>
-    Using FigJam, I visually laid out findings from past research. <br> <strong>The white empty spaces indicated potential knowledge gaps.</strong>
+    The team initially visually laid out the user flow for each OS. The overall steps were broken down into three parts: onboarding, receiving alerts, and entering the verification code for positive COVID test results.
   </figcaption>
 
 
 </figure>
 
 
-### Outcomes:
-- Examined 5+ past research work and findings, and **organized into an affinity map to identify knowledge gaps.**
-- Studies were from 2018-2019, involving evaluative research, testing design iterations and concepts. **Because past work all dealt with specific design concepts and evaluative research, it was difficult to generalize findings across different studies.**
-- Lot of data was missing or not as well organized.
+<h3 id="tasks">Tasks:</h3>
 
-### Insights:
-1. Preliminary research revealed the knowledge gaps and how past work has been mainly focused on testing design iterations with lack of understanding of the users.
+<ul>
+<li>The study was broken down into <strong>3 major tasks:</strong>
 
-2. In order to inform future design decisions, the primary user research was designed to focus on foundational research to understand users' needs, behaviors, pain points, and typical use cases in their sourcing workflow.
+<ul>
+<li><strong>Task A:</strong> Finding the instructions, and enabling the notification
 
----
-<br>
-## <h style="font-family:georgia"> 2. Interviews </h>
+<ul>
+<li><em>Using a DOH resource link provided, enable WA Notify on your device</em></li>
+</ul></li>
+<li><strong>Task B:</strong> Receiving an exposure alert, and deciding what actions to take next
 
-### Goals:
+<ul>
+<li><em>You received a text from the DOH that you may have been exposed. What do you do now?</em></li>
+</ul></li>
+<li><strong>Task C:</strong> Receiving a text message for testing positive from COVID, and deciding what to do next
 
-- Identify major use cases and touchpoints in sourcing and data comparison
-- Understand users' behaviors and pain points
-- Develop user journey map of typical use cases
+<ul>
+<li><em>You tested positive for COVID and received a text from DOH. What do you do now?</em></li>
+</ul></li>
+</ul></li>
+</ul>
 
-### Study Design:
+<p><br></p>
 
-The purpose of the study was **generative** to understand users' behaviors, needs, and pain points.
+<ul>
+<li>After each task:
 
-- 60 minutes of **qualitative** remotely-moderated **contextual inquiries** and **interviews** via Respondent.io
-- Design of the study was 2 folds:
-  1. High level start to end process of sourcing
-  2. Detailed step by step of data comparison process from analyzing bids to making decisions
+<ul>
+<li>a confidence score rating question was assessed.</li>
+<li>probed for areas of confusion, recommendations, and how the experiences in the two flows differed if any.</li>
+</ul></li>
+<li>Each participant was tested with both versions of the WA Notify.
 
-### Study Demographics at a Glance:
+<ul>
+<li>One entire flow of OS was presented before presenting the other.</li>
+<li>For example, a participant first completed the iPhone version. Then, completed the Android flow.</li>
+<li><strong>To avoid bias or familiarity of the OS and the phone type the participants use, the order was counterbalanced.</strong></li>
+</ul></li>
+</ul>
+
+<h3 id="target-audience">Target Audience:</h3>
+
+<ul>
+<li>The target audience was broadly defined as anyone who resides in WA state who has an Android or iOS device. This included people of all backgrounds, education levels, and technology literacy.
+
+<ul>
+<li><strong><em>The more people who enable and use WA Notify, the more effective the system is in tracing the COVID.</em></strong></li>
+</ul></li>
+<li>For screener,</li>
+</ul>
+
+<h3 id="demographics">Demographics:</h3>
+
+<ul>
+<li>A total of 11 participants were tested.</li>
+<li>Age range of 18-34.</li>
+<li>During the screener, participants&rsquo; information, such as phone types, whether they had previously enabled the notification, and tested for COVID, were identified.</li>
+</ul>
+
 
 
 
@@ -705,25 +736,22 @@ The purpose of the study was **generative** to understand users' behaviors, need
 <figure>
 
 
-  <a data-fancybox="" href="primary-demographics.png" data-caption="Participant criteria were strictly controlled to ensure that I spoke with the participants that best matches with the current users. ">
-<img src="primary-demographics.png" alt="" width="full" ></a>
+  <a data-fancybox="" href="demographics.png" data-caption="We had even split between Android and iPhone users. For iPhone users, we see that all participants had previously enabled the notifications.">
+<img src="demographics.png" alt="" width="full" ></a>
 
 
   
   
   <figcaption>
-    <b>Participant criteria were strictly controlled to ensure that I spoke with the participants that best matches with the current users. </b>
+    We had even split between Android and iPhone users. For iPhone users, we see that all participants had previously enabled the notifications.
   </figcaption>
 
 
 </figure>
 
 
----
-<br>
-## <h style="font-family:georgia"> 3. Data Analysis & Collaborative Workshop </h>
+<h3 id="data-analysis">Data Analysis:</h3>
 
-### 3.1 Data Analysis:
 
 
 
@@ -740,50 +768,30 @@ The purpose of the study was **generative** to understand users' behaviors, need
 <figure>
 
 
-  <a data-fancybox="" href="data-analysis1.png" data-caption=" For the initial data analysis, notes from Excel was converted to Mural whiteboard, and was organized into high level themes. Each participant was color-coded. ">
-<img src="data-analysis1.png" alt="" width="full" ></a>
+  <a data-fancybox="" href="data-analysis.png" data-caption="The team then took the data to do affinity mapping to search for patterns and common themes. Each participant was color-coded.">
+<img src="data-analysis.png" alt="" width="full" ></a>
 
 
   
   
   <figcaption>
-    <b> For the initial data analysis, notes from Excel was converted to Mural whiteboard, and was organized into high level themes. Each participant was color-coded. </b>
+    The team then took the data to do affinity mapping to search for patterns and common themes. <br>Each participant was color-coded.
   </figcaption>
 
 
 </figure>
 
 
-### 3.2 Thematic Analysis and Journey Mapping:
+<hr />
 
+<p><br></p>
 
+<h2 id="h-style-font-family-georgia-research-findings-h"><h style="font-family:georgia"> Research Findings </h></h2>
 
+<p><strong><em>For readability, I highlight findings from Task B only.</em></strong> Please reach out for more information.</p>
 
+<h3 id="task-b-receiving-an-exposure-alert-and-deciding-what-to-do-next">Task B. Receiving an exposure alert, and deciding what to do next:</h3>
 
-
-
-
-
-
-
-
-
-<figure>
-
-
-  <a data-fancybox="" href="data-analysis2.png" >
-<img src="data-analysis2.png" alt="" width="full" ></a>
-
-
-
-</figure>
-
-
-- Each sticky was broken down by corresponding themes.
-- Visually laying out the participants' sourcing workflow from start to end helped understand the journey of each participant.
-- I was able to identify emerging patterns, characterizing behaviors, needs, and major paint points at each touchpoint in the journey.
-
-### 3.3 Collaborative Data Synthesis Workshop:
 
 
 
@@ -800,61 +808,183 @@ The purpose of the study was **generative** to understand users' behaviors, need
 <figure>
 
 
-  <a data-fancybox="" href="workshop.png" >
-<img src="workshop.png" alt="" width="full" ></a>
-
-
-
-</figure>
-
-
-- Over two days, my supervisor/mentor and I facilitated data synthesis workshops to onboard stakeholders with the research findings. In order to make the data more digestible, I made sure the data was organized and presented concisely.
-- Through affinity mapping, we had two groups of stakeholders move stickies by topics and discuss emerging patterns.
-
-___
-<br>
-## <h style="font-family:georgia"> Research Findings & Deliverables </h>
-
-### Outcomes & Deliverables:
-
-- Identified three major use cases in sourcing
-- Developed persona, user story, and journey map for each use case highlighting actions taken, pain points, quotes, and emotions at each touch point.
-- Delivered general findings related to sourcing, and data comparison habits
-  - Including **high level objectives** in sourcing and data comparison
-  - **Major pain points**
-  - **Recommendations for each pain point** to improve the experience
-  - Showcasing examples of **data manipulation workflow step by step**
-
-### Example of Journey Map #1 of 3 (Redacted):
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure>
-
-
-  <a data-fancybox="" href="journey-map.png" data-caption="Example of journey map of use case #1. Total 3 use cases were presented to the stakeholders. They highlighted the corresponding user story, key descriptions of the persona, behaviors, needs and pain points, quotes, and emotion scale.">
-<img src="journey-map.png" alt="" width="full" ></a>
+  <a data-fancybox="" href="task.png" data-caption="Participants were shown the exposure alert, and asked what they would do next.">
+<img src="task.png" alt="" width="small" ></a>
 
 
   
   
   <figcaption>
-    <b>Example of journey map of use case #1.</b> Total 3 use cases were presented to the stakeholders. They highlighted the corresponding user story, key descriptions of the persona, behaviors, needs and pain points, quotes, and emotion scale.
+    Participants were shown the exposure alert, and asked what they would do next.
   </figcaption>
 
 
 </figure>
- -->
+
+
+<h3 id="insight-1">Insight #1:</h3>
+
+<ul>
+<li>After receiving the alert, participants&rsquo; immediate reactions were to:
+
+<ul>
+<li><strong>Learn more about the details of the exposure.</strong>
+
+<ul>
+<li>Seeing where, when, and who, and even a map that pinpoints the possible exposure.</li>
+<li><em>&ldquo;I would be curious where I might have been exposed &hellip; <strong>like a map that pinpoints the exposure.</strong> (P1)&rdquo;</em></li>
+<li><em>&ldquo;I would be concerned. Where must have I gone? Who did I get in contact with? (P8)&rdquo;</em></li>
+</ul></li>
+<li><strong>See resources on getting tested.</strong>
+
+<ul>
+<li><em>&ldquo;I expected to see more directions on testing sites and resources. (P11)&rdquo;</em></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h3 id="insight-2">Insight #2:</h3>
+
+<ul>
+<li>Both flows were perceived as similar: <strong>&ldquo;simple&rdquo;</strong> and <strong>&ldquo;straightforward.&rdquo;</strong></li>
+<li><strong>Android&rsquo;s landing screen was preferred</strong> because it showed a summary and possible exposure data, whereas iPhone initially shows a heavy text upfront.
+
+<ul>
+<li><em>&ldquo;<strong>[Android] makes it more clear about the exposure data</strong> and what to do next. (P7)&rdquo;</em></li>
+</ul></li>
+<li>Experiences in both versions made sense to the participants. Most concerns were raised in the DOH&rsquo;s &lsquo;What to do Next&rsquo; resource web page.
+
+<ul>
+<li><em>&ldquo;Good until the point of clicking the link to &lsquo;Learn More.&rsquo; (P4)&rdquo;</em></li>
+</ul></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure>
+
+
+  <a data-fancybox="" href="insight2.png" data-caption="Android (left) has a summary page vs. iPhone (right) shows a heavy text upfront.">
+<img src="insight2.png" alt="" width="full" ></a>
+
+
+  
+  
+  <figcaption>
+    <strong>Android (left) has a summary page vs. iPhone (right) shows a heavy text upfront.</strong>
+  </figcaption>
+
+
+</figure>
+
+
+<h3 id="insight-3">Insight #3:</h3>
+
+<ul>
+<li>Once the participants reached the page, they were asked series of questions on the overall impression and finding specific information on what to do next within the DOH&rsquo;s website.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure>
+
+
+  <a data-fancybox="" href="insight3.png" data-caption="Participants had to find information on what to do next on the DOH website.">
+<img src="insight3.png" alt="" width="full" ></a>
+
+
+  
+  
+  <figcaption>
+    Participants had to find information on what to do next on the DOH website.
+  </figcaption>
+
+
+</figure>
+
+
+<h4 id="pros">Pros:</h4>
+
+<ul>
+<li>Comprehensive of the information in the page</li>
+</ul>
+
+<h4 id="cons">Cons:</h4>
+
+<ul>
+<li>Difficult to find relevant information</li>
+<li>Contents seem useful, but <strong>too generic</strong> that <strong>doesn&rsquo;t meet the expectations</strong> of the users that just received the exposure alert would look for</li>
+</ul>
+
+<h4 id="confidence-rating">Confidence Rating:</h4>
+
+<ul>
+<li><p>At the end of the task, participants were asked, <br> <strong><em>&ldquo;How confident do you feel on what to do next upon possible exposure?&rdquo;</em></strong> (5 being most confident)</p>
+
+<ul>
+<li><strong>Flow 1.</strong> iPhone settings to the DOH Website: 3: <strong>3.5</strong>/5.0</li>
+<li><strong>Flow 2.</strong> Android App to the DOH Website: 3: <strong>4.0</strong>/5.0</li>
+</ul></li>
+
+<li><p>Confidence rating in the Android version scored highly possibly due to the <strong>better summary page that was provided.</strong> However, with our sample size, <strong>the rating should be taken as a grain of salt</strong> at the stage.</p></li>
+</ul>
+
+<hr />
+
+<p><br></p>
+
+<h2 id="h-style-font-family-georgia-recommendations-h"><h style="font-family:georgia"> Recommendations </h></h2>
+
+<p>Based on the feedbacks provided from the participants and insights, I came up with 3 recommendations:</p>
+
+<ol>
+<li><p><strong>Prioritize more ACTIONABLE information</strong></p>
+
+<ul>
+<li>Information, such as COVID symptoms, were considered common sense at this point</li>
+<li><em>&ldquo;To me, it feels like it&rsquo;s common knowledge, such as symptoms (P1)&rdquo;</em></li>
+<li><em>&ldquo;I expected to see more simplified summary. <strong>It&rsquo;s 2021 and I already have context of COVID</strong> (P11)&rdquo;</em></li>
+<li><em>&ldquo;Guidelines seem informational. Nothing to act on. (P4)&rdquo;</em></li>
+</ul></li>
+
+<li><p><strong>Make information about testing sites more available</strong></p>
+
+<ul>
+<li>After seeing the exposure notification, most participants wanted and expected to immediately get tested, but had hard time finding the correct information</li>
+<li>Show information about nearby clinics or how to get scheduled for a test</li>
+<li><em>&ldquo;Does it have information on testing sites? I would like to know what steps to take next. (P9)&rdquo;</em></li>
+</ul></li>
+
+<li><p><strong>Less text and more visuals</strong></p>
+
+<ul>
+<li>A lot of word and information were provided upfront while participants were going under stress from the alert</li>
+<li>Visuals or infographics can better direct them to relevant information</li>
+<li><em>&ldquo;It feels really wordy and it&rsquo;s <strong>too much all at once.</strong> (P8)&rdquo;</em></li>
+</ul></li>
+</ol>
 
 <hr />
 
@@ -1087,7 +1217,7 @@ ___
       
       <li><a href="/project/alaska-airlines/">Visualizing travel experiences through interactive journey mapping (Company sponsored project/ NDA)</a></li>
       
-      <li><a href="/post/quant-ux/">Statistical Data Analysis of Cross-Cultural Research</a></li>
+      <li><a href="/post/quant-ux/">Statistical Data Analysis in Cross-Cultural Research</a></li>
       
     </ul>
   </div>

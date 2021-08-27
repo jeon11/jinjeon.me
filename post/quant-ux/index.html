@@ -563,6 +563,8 @@
     <div class="article-style">
       
 
+<p><body style="font-family:Arial; font-size: 12pt"></p>
+
 <p>I use survey data collected from Amazon Mechanical Turk and Reddit user groups (all personal data  have been removed) in a study to examine the impact of cultural localization on web-based account creation between American and Korean users. I use the experiment data to display basic statistical tests in Python.</p>
 
 <h3 id="research-question">Research Question:</h3>
@@ -575,12 +577,12 @@ within two different use scenarios: online banking and shopping?</em></strong></
 <p>I use the following tests:</p>
 
 <ol>
-<li><strong><a href="#1.-Pearson-Correlation-Coefficient">Pearson Correlation Coefficient</a></strong></li>
-<li><strong><a href="#2.-T-Test">T-Test</a></strong></li>
-<li><strong><a href="#3.-Mann-Whitney-Test">Mann-Whitney Test</a></strong></li>
-<li><strong><a href="#4.-One-Way-Analysis-of-Variance-(ANOVA)">One-Way Analysis of Variance (ANOVA)</a></strong></li>
+<li><strong><a href="#link1">Pearson Correlation Coefficient</a></strong></li>
+<li><strong><a href="#link2">T-Test</a></strong></li>
+<li><strong><a href="#link3">Mann-Whitney Test</a></strong></li>
+<li><strong><a href="#link4">One-Way Analysis of Variance (ANOVA)</a></strong></li>
 
-<li><p><strong><a href="#5.-Two-Way-ANOVA">Two-Way ANOVA</a></strong></p>
+<li><p><strong><a href="#link5">Two-Way ANOVA</a></strong></p>
 
 <pre><code class="language-python">import os
 import pandas as pd
@@ -799,7 +801,7 @@ usa.head()
 
 <hr />
 
-<h2 id="1-pearson-correlation-coefficient">1. Pearson Correlation Coefficient</h2>
+<h2 id="a-name-link1-1-pearson-correlation-coefficient-a"><a name="link1"> 1. Pearson Correlation Coefficient </a></h2>
 
 <p>When we want to ask <em>&ldquo;how strongly correlated are the two variables?&rdquo;</em>, we can use <strong>Perason&rsquo;s Correlation</strong>. It is used to measure statistical relationship or association between two <strong><em>continuous variables</em></strong> that are linearly related to each other. The coefficient value <em>&ldquo;r&rdquo;</em> ranges from -1 (negative relation) to 1 (perfectly positive). 0 would mean that there is no relationship at all.</p>
 
@@ -840,7 +842,7 @@ p: 0.0
 
 <hr />
 
-<h2 id="2-t-test">2. T-Test</h2>
+<h2 id="a-name-link2-2-t-test-a"><a name="link2"> 2. T-Test </a></h2>
 
 <p>When comparing the means of two groups, we can use a <strong>t-test</strong>. It takes into account of the means and the spread of the data to determine <strong><em>whether a difference between the two would occur by chance or not</em></strong> (determined by the p-value being less than 0.05 usually). In a t-test, there should be only two independent variables (categorical/nominal variables) and one dependent continuous variable.</p>
 
@@ -919,7 +921,7 @@ ax_box2.set(xlabel='')
 
 <hr />
 
-<h2 id="3-mann-whitney-test">3. Mann-Whitney Test</h2>
+<h2 id="a-name-link3-3-mann-whitney-test-a"><a name="link3"> 3. Mann-Whitney Test </a></h2>
 
 <p>The Mann-Whitney Test allows you to determine if the observed difference is statistically significant without making the assumption that the values are normally distributed. You should have two independent variables and one continuous dependent variable.</p>
 
@@ -938,7 +940,7 @@ p: 4.1e-05
 
 <hr />
 
-<h2 id="4-one-way-analysis-of-variance-anova">4. One-Way Analysis of Variance (ANOVA)</h2>
+<h2 id="a-name-link4-4-one-way-analysis-of-variance-anova-a"><a name="link4"> 4. One-Way Analysis of Variance (ANOVA) </a></h2>
 
 <p>ANOVA is similar to a t-test, but it is used when there are three or more independent variables (categorical). It assumes normal distribution (use Kruskal-Wallis if abnormal?). One-way ANOVA compares the means between the variables to test whether the difference is statistically significant. However, it does not tell you which specific groups were statistically different from one another. Thus, a post-hoc analysis is required.</p>
 
@@ -956,7 +958,7 @@ scipy.stats.f_oneway(banking, shopping, var3)
 
 <hr />
 
-<h2 id="5-two-way-anova">5. Two-Way ANOVA</h2>
+<h2 id="a-name-link5-5-two-way-anova-a"><a name="link5"> 5. Two-Way ANOVA </a></h2>
 
 <p>A two-way ANOVA can be used when you want to know how two independent variables have an interaction effect on a dependent variable. CAVEAT: a two-way ANOVA does not tell which variable is dominant.</p>
 
@@ -1033,6 +1035,8 @@ sm.stats.anova_lm(model, typ=2)
 
 <p>The finding matches with the previous t-test and graph results, where users provided more information in the banking than they would in shopping.</p>
 
+<p></body></p>
+
     </div>
 
     
@@ -1048,6 +1052,8 @@ sm.stats.anova_lm(model, typ=2)
   <a class="badge badge-light" href="/tags/quantitative-ux/">quantitative-ux</a>
   
   <a class="badge badge-light" href="/tags/cross-cultural/">cross-cultural</a>
+  
+  <a class="badge badge-light" href="/tags/statistics/">statistics</a>
   
 </div>
 

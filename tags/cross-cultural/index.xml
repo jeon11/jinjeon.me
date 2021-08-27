@@ -19,6 +19,8 @@
       <guid>https://jinjeon.me/post/quant-ux/</guid>
       <description>
 
+&lt;p&gt;&lt;body style=&#34;font-family:Arial; font-size: 12pt&#34;&gt;&lt;/p&gt;
+
 &lt;p&gt;I use survey data collected from Amazon Mechanical Turk and Reddit user groups (all personal data  have been removed) in a study to examine the impact of cultural localization on web-based account creation between American and Korean users. I use the experiment data to display basic statistical tests in Python.&lt;/p&gt;
 
 &lt;h3 id=&#34;research-question&#34;&gt;Research Question:&lt;/h3&gt;
@@ -31,12 +33,12 @@ within two different use scenarios: online banking and shopping?&lt;/em&gt;&lt;/
 &lt;p&gt;I use the following tests:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;#1.-Pearson-Correlation-Coefficient&#34;&gt;Pearson Correlation Coefficient&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;#2.-T-Test&#34;&gt;T-Test&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;#3.-Mann-Whitney-Test&#34;&gt;Mann-Whitney Test&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;#4.-One-Way-Analysis-of-Variance-(ANOVA)&#34;&gt;One-Way Analysis of Variance (ANOVA)&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;#link1&#34;&gt;Pearson Correlation Coefficient&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;#link2&#34;&gt;T-Test&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;#link3&#34;&gt;Mann-Whitney Test&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;#link4&#34;&gt;One-Way Analysis of Variance (ANOVA)&lt;/a&gt;&lt;/strong&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;#5.-Two-Way-ANOVA&#34;&gt;Two-Way ANOVA&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;#link5&#34;&gt;Two-Way ANOVA&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import os
 import pandas as pd
@@ -255,7 +257,7 @@ usa.head()
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;1-pearson-correlation-coefficient&#34;&gt;1. Pearson Correlation Coefficient&lt;/h2&gt;
+&lt;h2 id=&#34;a-name-link1-1-pearson-correlation-coefficient-a&#34;&gt;&lt;a name=&#34;link1&#34;&gt; 1. Pearson Correlation Coefficient &lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;When we want to ask &lt;em&gt;&amp;ldquo;how strongly correlated are the two variables?&amp;rdquo;&lt;/em&gt;, we can use &lt;strong&gt;Perason&amp;rsquo;s Correlation&lt;/strong&gt;. It is used to measure statistical relationship or association between two &lt;strong&gt;&lt;em&gt;continuous variables&lt;/em&gt;&lt;/strong&gt; that are linearly related to each other. The coefficient value &lt;em&gt;&amp;ldquo;r&amp;rdquo;&lt;/em&gt; ranges from -1 (negative relation) to 1 (perfectly positive). 0 would mean that there is no relationship at all.&lt;/p&gt;
 
@@ -296,7 +298,7 @@ p: 0.0
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;2-t-test&#34;&gt;2. T-Test&lt;/h2&gt;
+&lt;h2 id=&#34;a-name-link2-2-t-test-a&#34;&gt;&lt;a name=&#34;link2&#34;&gt; 2. T-Test &lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;When comparing the means of two groups, we can use a &lt;strong&gt;t-test&lt;/strong&gt;. It takes into account of the means and the spread of the data to determine &lt;strong&gt;&lt;em&gt;whether a difference between the two would occur by chance or not&lt;/em&gt;&lt;/strong&gt; (determined by the p-value being less than 0.05 usually). In a t-test, there should be only two independent variables (categorical/nominal variables) and one dependent continuous variable.&lt;/p&gt;
 
@@ -375,7 +377,7 @@ ax_box2.set(xlabel=&#39;&#39;)
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;3-mann-whitney-test&#34;&gt;3. Mann-Whitney Test&lt;/h2&gt;
+&lt;h2 id=&#34;a-name-link3-3-mann-whitney-test-a&#34;&gt;&lt;a name=&#34;link3&#34;&gt; 3. Mann-Whitney Test &lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;The Mann-Whitney Test allows you to determine if the observed difference is statistically significant without making the assumption that the values are normally distributed. You should have two independent variables and one continuous dependent variable.&lt;/p&gt;
 
@@ -394,7 +396,7 @@ p: 4.1e-05
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;4-one-way-analysis-of-variance-anova&#34;&gt;4. One-Way Analysis of Variance (ANOVA)&lt;/h2&gt;
+&lt;h2 id=&#34;a-name-link4-4-one-way-analysis-of-variance-anova-a&#34;&gt;&lt;a name=&#34;link4&#34;&gt; 4. One-Way Analysis of Variance (ANOVA) &lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;ANOVA is similar to a t-test, but it is used when there are three or more independent variables (categorical). It assumes normal distribution (use Kruskal-Wallis if abnormal?). One-way ANOVA compares the means between the variables to test whether the difference is statistically significant. However, it does not tell you which specific groups were statistically different from one another. Thus, a post-hoc analysis is required.&lt;/p&gt;
 
@@ -412,7 +414,7 @@ scipy.stats.f_oneway(banking, shopping, var3)
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;5-two-way-anova&#34;&gt;5. Two-Way ANOVA&lt;/h2&gt;
+&lt;h2 id=&#34;a-name-link5-5-two-way-anova-a&#34;&gt;&lt;a name=&#34;link5&#34;&gt; 5. Two-Way ANOVA &lt;/a&gt;&lt;/h2&gt;
 
 &lt;p&gt;A two-way ANOVA can be used when you want to know how two independent variables have an interaction effect on a dependent variable. CAVEAT: a two-way ANOVA does not tell which variable is dominant.&lt;/p&gt;
 
@@ -488,6 +490,8 @@ sm.stats.anova_lm(model, typ=2)
 &lt;p&gt;From the table above, only scenario has a sole effect on the total amount of information provided (depicted as &lt;code&gt;percent&lt;/code&gt; in the dataframe). We see culture, and the interaction of culture and scenario do not have an effect on the amount of information that users provided.&lt;/p&gt;
 
 &lt;p&gt;The finding matches with the previous t-test and graph results, where users provided more information in the banking than they would in shopping.&lt;/p&gt;
+
+&lt;p&gt;&lt;/body&gt;&lt;/p&gt;
 </description>
     </item>
     
